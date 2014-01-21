@@ -1,0 +1,27 @@
+h1 {
+  font-size: 130%;
+  text-align: center;
+}
+
+.input-group-btn > .btn:hover,
+.input-group-btn > .btn:active {
+  box-shadow: none !important;
+}
+
+.corner {
+  position:absolute; bottom:3px; left:28px; background: url(../img/corner.png) no-repeat;padding:7px;
+}
+
+.col-xs-12 > div { margin-bottom: 20px;}
+.list-inline > li:first-child { padding-left: 0;}
+
+.loading {
+  background: url('/img/ajax-loader.gif');
+}
+.wrongAmount { color:#d1011a; }
+
+ul.navbar-nav > li {display:inline-block !important;}
+
+.alert { margin: 10px 0 56px 0 !important; }
+
+help-block { font-size: 80%; }
