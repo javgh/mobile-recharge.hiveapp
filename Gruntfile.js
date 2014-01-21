@@ -43,17 +43,56 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+    forever: {
+      options: {
+        index: 'app.js',
+        logDir: 'logs'
+      }
+    },
+    compress: {
+      main: {
+        options: {
+          archive: 'mobile-recharge.hiveapp',
+          mode: 'zip',
+          pretty: true
+        },
+        files: [
+          {src: ['css/**', 'fonts/**', 'img/**', 'js/controllers.js', 'js/config.js',
+            'lib/**', 'icon.png', 'index.html', 'manifest.json']}
+        ]
+      }
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-ng-constant');
   grunt.loadNpmTasks('grunt-prompt');
+  grunt.loadNpmTasks('grunt-forever');
+  grunt.loadNpmTasks('grunt-contrib-compress');
 
-  grunt.registerTask('start', function () {
+  grunt.registerTask('init', function () {
     grunt.task.run([
       'prompt:ngconstant',
       'ngconstant:dist'
     ]);
   });
+  grunt.registerTask('run', function () {
+    if(!grunt.file.isFile('js/config.js')) {
+      grunt.task.run(['init']);
+    }
+    grunt.task.run([
+      'forever:start'
+    ]);
+  });
+  grunt.registerTask('release', function () {
+    if(!grunt.file.isFile('js/config.js')) {
+      grunt.task.run(['init']);
+    }
+    grunt.task.run([
+      'compress'
+    ]);
+  });
+
 };

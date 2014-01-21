@@ -1,6 +1,6 @@
 {
-  "name": "com.spend-a-bit.hive",
-  "version": "0.0.1",
+  "name": "com.spend-a-bit.mobile-recharge",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -21,6 +21,8 @@
     "grunt": "~0.4.2",
     "grunt-contrib-uglify": "~0.3.0",
     "grunt-ng-constant": "~0.4.8",
-    "grunt-prompt": "~0.1.2"
+    "grunt-prompt": "~0.1.2",
+    "grunt-forever": "~0.4.1",
+    "grunt-contrib-compress": "~0.6.0"
   }
 }
