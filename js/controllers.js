@@ -40,7 +40,7 @@ mobileRechargeApp.controller('mobileRechargeCtrl', ['$scope', '$http', '$sce', '
           }
         }
         $scope.matching[msisdn.length] = matching;
-        if(msisdn[0] == "7") {
+        if(msisdn[0] == "7" && $scope.countryCode != 'ru' && $scope.countryCode != 'kz') {
           $scope.setCountry({
             prefix: "7",
             id: "rukz",
