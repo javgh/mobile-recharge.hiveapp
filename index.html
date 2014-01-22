@@ -78,7 +78,7 @@
           <div class="col-xs-12">
             <div class="checkbox">
               <label>
-                <input type="checkbox" ng-model="agreed"> I've read and agree with <a href="#" ng-click="message = {template: 'terms'}">Terms of use</a>
+                <input type="checkbox" ng-model="agreed"> I've read and agree with <a data-toggle="collapse" data-parent="#accordion" href="#terms">Terms of use</a>
               </label>
             </div>
 
@@ -88,60 +88,99 @@
       </div>
       <div ng-show="message.text" class="alert" ng-class="message.level" ng-bind-html="message.text"></div>
       <div ng-show="wrongAmount" class="alert alert-danger">Payment amount less than minimum</div>
-      <div ng-show="message.template == 'howto'" class="alert alert-info" >
-        <strong>Works for prepaid plans only!</strong><br/>
-        <ol><li>Enter mobile number you want to recharge</li>
-          <li>Choose or enter (for some providers) amount of payment</li>
-          <li>Make a payment to provided bitcoin address</li>
-          <li>Your balance will be recharged after 3-6 confirmations in the blockchain</li>
-        </ol>
+
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#terms">
+                Terms of use
+              </a>
+            </h4>
+          </div>
+          <div id="terms" class="panel-collapse collapse">
+            <div class="panel-body">
+              We compiled the most important statements here for you:<br/>
+              <ul><li>We keep information provided by users confidential, however we cannot guarantee that unauthorized third party will not be able to overcome our security measures. You acknowledge to provide your personal info at your own risk.</li>
+                <li>We depend from many 3rd party systems and we cannot be liable for outages and inability to finalize accepted transaction. We only guarantee to refund you within 48 hours if we are unable to complete your recharge</li>
+                <li>You agree not to use our services in illegal or malicious purposes</li>
+              </ul><br/>
+              Full document can be found <a href="http://www.spend-a-bit.com/static/terms" target="_blank" class="alert-link">here</a>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#howto">
+                How it works
+              </a>
+            </h4>
+          </div>
+          <div id="howto" class="panel-collapse collapse">
+            <div class="panel-body">
+              <strong>Works for prepaid plans only!</strong><br/>
+              <ol><li>Enter mobile number you want to recharge</li>
+                <li>Choose or enter (for some providers) amount of payment</li>
+                <li>Make a payment to provided bitcoin address</li>
+                <li>Your balance will be recharged after 3-6 confirmations in the blockchain</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#input">
+                Number input format
+              </a>
+            </h4>
+          </div>
+          <div id="input" class="panel-collapse collapse">
+            <div class="panel-body">
+              Enter mobile number in international format: <strong>&lt;Country Code&gt;&lt;Number&gt;</strong><br/>
+              You may find your country code in the list of supported countries by clicking gray flag<br/>
+              Examples: 7 926 1234567 (Russia), 91 974 1234567 (India), 55 119 12345678 (Brazil)
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#prices">
+                Prices
+              </a>
+            </h4>
+          </div>
+          <div id="prices" class="panel-collapse collapse">
+            <div class="panel-body">
+              To find out exact price enter your number into the box and press OK. <br/><strong>Attention! Mentioned prices do not include taxes if any applicable in your country</strong><br/>
+              Our prices are subject to change without prior notice, We update prices to reflect currency rates fluctuation or whenever new agreement reached with the service provider. Changes for more than 2-3% usually communicated through our twitter, but it's not an obligation.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#contact">
+                Contact us
+              </a>
+            </h4>
+          </div>
+          <div id="contact" class="panel-collapse collapse">
+            <div class="panel-body">
+              Support: <a href="mailto:support@spend-a-bit.com" target="_blank" class="alert-link">support@spend-a-bit.com</a><br/>
+              Website: <a href="http://www.spend-a-bit.com/" target="_blank" class="alert-link">www.Spend-a-bit.com</a><br/>
+              Email: <a href="mailto:lets@spend-a-bit.com" target="_blank" class="alert-link">lets@spend-a-bit.com</a><br/>
+              Twitter: <a href="https://twitter.com/SpendBit" target="_blank" class="alert-link">@SpendBit</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div ng-show="message.template == 'input'" class="alert alert-info" >
-        Enter mobile number in international format: <strong>&lt;Country Code&gt;&lt;Number&gt;</strong><br/>
-        You may find your country code in the list of supported countries by clicking gray flag<br/>
-        Examples: 7 926 1234567 (Russia), 91 974 1234567 (India), 55 119 12345678 (Brazil)
-      </div>
-      <div ng-show="message.template == 'contact'" class="alert alert-info" >
-        Support: <a href="mailto:support@spend-a-bit.com" target="_blank" class="alert-link">support@spend-a-bit.com</a><br/>
-        Website: <a href="http://www.spend-a-bit.com/" target="_blank" class="alert-link">www.Spend-a-bit.com</a><br/>
-        Email: <a href="mailto:lets@spend-a-bit.com" target="_blank" class="alert-link">lets@spend-a-bit.com</a><br/>
-        Twitter: <a href="https://twitter.com/SpendBit" target="_blank" class="alert-link">@SpendBit</a>
-      </div>
-      <div ng-show="message.template == 'prices'" class="alert alert-info" >
-        Fees vary from 0% in US to 30-40% in some African countries. To find out exact price enter your number into the box and press OK. <br/><strong>Attention! Mentioned prices do not include taxes if any applicable in your country</strong><br/>
-        Our prices are subject to change without prior notice, We update prices to reflect currency rates fluctuation or whenever new agreement reached with the service provider. Changes for more than 2-3% usually communicated through our twitter, but it's not an obligation.
-      </div>
-      <div ng-show="message.template == 'terms'" class="alert alert-info" >
-        We compiled the most important statements here for you:<br/>
-        <ul><li>We keep information provided by users confidential, however we cannot guarantee that unauthorized third party will not be able to overcome our security measures. You acknowledge to provide your personal info at your own risk.</li>
-        <li>We depend from many 3rd party systems and we cannot be liable for outages and inability to finalize accepted transaction. We only guarantee to refund you within 48 hours if we are unable to complete your recharge</li>
-        <li>You agree not to use our services in illegal or malicious purposes</li>
-        </ul><br/>
-        Full document can be found <a href="http://www.spend-a-bit.com/static/terms" target="_blank" class="alert-link">here</a>
-      </div>
+
     </div>
   </div>
 </div>
-
-<footer class="navbar navbar-fixed-bottom navbar-default" role="navigation">
-  <div class="container">
-
-    <nav>
-      <ul class="nav navbar-nav">
-        <li class="dropdown dropup">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#" ng-click="message = {template: 'howto'}">How it works</a></li>
-            <li><a href="#" ng-click="message = {template: 'input'}">Number input format</a></li>
-            <li><a href="#" ng-click="message = {template: 'contact'}">Contact us</a></li>
-          </ul>
-        </li>
-        <li><a href="#" ng-click="message = {template: 'prices'}">Prices</a></li>
-        <li><a href="#" ng-click="message = {template: 'terms'}">Terms of use</a></li>
-      </ul>
-    </nav>
-  </div>
-</footer>
 
 
 </body>

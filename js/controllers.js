@@ -57,7 +57,7 @@ mobileRechargeApp.controller('mobileRechargeCtrl', ['$scope', '$http', '$sce', '
       }
     }
     $scope.keyDown = function(event) {
-      if(event.keyCode == 8 && $scope.number.length == 0) {
+      if(event.keyCode == 8 && !$scope.number) {
         $scope.number = $scope.prefix;
         $scope.setCountry($scope.emptyCountry);
       }
