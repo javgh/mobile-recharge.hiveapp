@@ -1,19 +1,13 @@
-#Mobile Recharge application for hive-wallet
+#Mobile Recharge app for hive-wallet
 see [Hive wallet](https://github.com/hivewallet/)
 
-##Local setup:
-Execute
-> grunt init
+##To install it for your hive-wallet
+Grab [latest release](https://github.com/s-a-y/mobile-recharge.hiveapp/releases/download/v1.0.0/mobile-recharge.hiveapp)
+double-click the downloaded file in Finder and confirm the action in Hive
 
-to create configuration file. 
-
+##For developers:
+Execute `grunt init` to create configuration file.
 It will ask for an API key. You can obtain API key by sending an email to lets@spend-a-bit.com
 
-Use
-> grunt run
-
-to run the application
-
-> grunt release
-
-to pack it for hive wallet
+Use `grunt run` to run the application
+and `grunt release` to pack it for hive wallet
